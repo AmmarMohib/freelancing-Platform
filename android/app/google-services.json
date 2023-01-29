@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "901043048658",
+    "project_id": "truelancerclone",
+    "storage_bucket": "truelancerclone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901043048658:android:4a29a58d0b711180cd5d0b",
+        "android_client_info": {
+          "package_name": "com.example.truelancer_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "901043048658-uh27h5dk5hulbc2d1a11pg5c55bd68ri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjEGemleY7GzbSjkliX-9inyDvuXxJdLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "901043048658-uh27h5dk5hulbc2d1a11pg5c55bd68ri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
