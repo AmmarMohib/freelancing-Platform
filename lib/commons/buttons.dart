@@ -66,3 +66,52 @@ class SignUpButton extends StatelessWidget {
     );
   }
 }
+
+class JobButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onTap;
+  // final IconData iconurl;
+  const JobButton(
+      {Key? key,
+      required this.onTap,
+      required this.text})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 450,
+      height: 50,
+      child: ElevatedButton(
+        style: ButtonStyle(
+            overlayColor: MaterialStateProperty.all<Color>(Colors.black12),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50.0),
+                    side:
+                        const BorderSide(color: Colors.white))),
+            backgroundColor: MaterialStateProperty.all(Color.fromRGBO(20, 168, 0, 1.0)),
+            elevation: MaterialStateProperty.all(0)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              width: 20,
+            ),
+            Text(
+              text,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600),
+            )
+          ],
+        ),
+        // by onpressed we call the function signup function
+        onPressed: () {
+          onTap();
+        },
+      ),
+    );
+  }
+}

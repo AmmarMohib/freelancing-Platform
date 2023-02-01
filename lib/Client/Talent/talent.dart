@@ -4,6 +4,7 @@ import 'package:truelancer_clone/Client/Talent/Hires.dart';
 // import 'package:truelancer_clone/Client/C++/Hires.dart';
 import 'package:truelancer_clone/Client/Talent/saved.dart';
 import 'package:truelancer_clone/Client/Talent/search.dart';
+import 'package:truelancer_clone/commons/bottomNavBar.dart';
 
 class Talent extends StatefulWidget {
   const Talent({super.key});
@@ -18,7 +19,7 @@ class _TalentState extends State<Talent> {
     
     // return Text('data');
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.9,
+      height: MediaQuery.of(context).size.height * 0.97,
       child: DefaultTabController(
         length: 3,
         child: MaterialApp(
@@ -110,6 +111,7 @@ class _TalentState extends State<Talent> {
               
             ],  
           ),  
+          bottomNavigationBar: const BottomNavigation(),
           ),
         ),
       ),
