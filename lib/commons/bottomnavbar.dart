@@ -1,7 +1,10 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:truelancer_clone/Client/Jobs/jobs.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -98,6 +101,33 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     color: Color.fromARGB(255, 71, 67, 67),
                   ),
                   onPressed: () {
+                    final CollectionReference collectionReference =
+                        FirebaseFirestore.instance
+                            .collection('users')
+                            .doc(FirebaseAuth.instance.currentUser!.uid)
+                            .collection('UserDetails');
+                    final Stream<QuerySnapshot> snapshotStream =
+                        collectionReference.snapshots();
+
+                    snapshotStream.listen((snapshot) {
+                      for (var documentSnapshot in snapshot.docs) {
+                        print(documentSnapshot.get('perStatus'));
+                        if (documentSnapshot.get('perStatus') ==
+                            'Here to Hire') {
+                          print("succeeded");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                              ClientJobs()
+                            )
+                            );
+                        } else {
+                          print("failed");
+                        }
+                      }
+                    });
+
                     // setState(() {
                     //   _myPage.jumpToPage(0);
                     // });
@@ -131,6 +161,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     // });
                     //  Navigator.push(
                     // context, MaterialPageRoute(builder: (context) => const AccountPage()));
+                    var firebaseauth =
+                        FirebaseAuth.instance.currentUser!.displayName;
+                    // if (firebaseauth == ) {
+
+                    // }
                   },
                 ),
                 const Padding(
